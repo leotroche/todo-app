@@ -1,12 +1,12 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const Div = styled.div`
+const TodoItem = styled(motion.div)`
   font-size: 24px;
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
   background-color: #fff;
-  border: 2px solid #ccc;
   /* cursor: all-scroll; */
 
   display: flex;
@@ -24,39 +24,42 @@ const Div = styled.div`
   }
 
   ${({ completed }) => (completed ? `p { text-decoration: line-through; }` : '')}
+  ${({ completed }) => (completed ? `transform: scale(1.025);` : '')}
 
   p {
     width: 100%;
   }
+
+  span {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    transform: scale(0.9);
+
+    :hover {
+      transform: scale(1.25);
+    }
+
+    :first-child {
+      margin-right: 0.5rem;
+      ${({ completed }) => (completed ? `color: #080; transform: scale(1.1)` : '')}
+    }
+
+    :first-child:hover {
+      color: #080;
+    }
+
+    :last-child {
+      margin-left: 0.5rem;
+      opacity: 0;
+    }
+
+    :last-child:hover {
+      color: #c00;
+    }
+  }
 `
 
-const Span = styled.span`
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  transform: scale(0.9);
-
-  :hover {
-    transform: scale(1.25);
-  }
-
-  :first-child {
-    margin-right: 0.5rem;
-    ${({ completed }) => (completed ? `color: #080; transform: scale(1.1)` : '')}
-  }
-
-  :first-child:hover {
-    color: #080;
-  }
-
-  :last-child {
-    margin-left: 0.5rem;
-    opacity: 0;
-  }
-
-  :last-child:hover {
-    color: #c00;
-  }
-`
+// const Span = styled.span``
 
 // animations for Framer Motion
 const variants = {
@@ -72,4 +75,4 @@ const variants = {
   })
 }
 
-export { Div, Span, variants }
+export { TodoItem, variants }

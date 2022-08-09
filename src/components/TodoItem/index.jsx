@@ -5,7 +5,7 @@ import { MdClose, MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox } from 'react
 function TodoItem({ id, text, completed, index }) {
   const [todos, setTodos] = useTodoContext()
 
-  const completeTodo = (text) => {
+  const completeTodo = () => {
     const todoIndex = todos.findIndex((todo) => todo.text === text)
     const newTodos = [...todos]
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed
@@ -19,7 +19,7 @@ function TodoItem({ id, text, completed, index }) {
 
   return (
     <>
-      <S.Div
+      <S.TodoItem
         initial="hidden"
         animate="visible"
         exit="hidden"
@@ -28,16 +28,16 @@ function TodoItem({ id, text, completed, index }) {
         custom={{ delay: (index + 1) * 0.1 }}
         completed={completed}
       >
-        <S.Span completed={completed} onClick={() => completeTodo(text)}>
+        <span onClick={() => completeTodo()}>
           {completed ? <MdOutlineCheckBox /> : <MdOutlineCheckBoxOutlineBlank />}
-        </S.Span>
+        </span>
 
         <p>{text}</p>
 
-        <S.Span onClick={() => deleteTodo()}>
+        <span onClick={() => deleteTodo()}>
           <MdClose />
-        </S.Span>
-      </S.Div>
+        </span>
+      </S.TodoItem>
     </>
   )
 }
