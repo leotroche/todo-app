@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 const TodoForm = styled.form`
+  margin-top: 1.5rem;
+
   display: flex;
   width: 100%;
   height: 4rem;
@@ -29,7 +31,7 @@ const TodoForm = styled.form`
     cursor: pointer;
 
     :hover {
-      background-color: #607eaa;
+      background-color: #1c3879cd;
     }
   }
 `
