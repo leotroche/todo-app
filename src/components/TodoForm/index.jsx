@@ -6,6 +6,8 @@ function TodoForm({ todos, setTodos }) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+
+    if (todos.some((todo) => todo.text === value)) return
     if (!value) return
 
     const todo = { id: value, text: value, completed: false }

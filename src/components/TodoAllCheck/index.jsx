@@ -21,7 +21,8 @@ function TodoAllCheck({ todos, setTodos }) {
   }
 
   const clearButton = () => {
-    if (isAllSelected) setTodos([])
+    const newTodos = todos.filter((todo) => !todo.completed)
+    setTodos(newTodos)
   }
 
   return (
@@ -33,7 +34,7 @@ function TodoAllCheck({ todos, setTodos }) {
           <button onClick={selectButton}>Select all</button>
         )}
 
-        {isAllSelected ? <button onClick={clearButton}>Clear completed</button> : ''}
+        <button onClick={clearButton}>Clear completed</button>
       </S.TodoAllCheck>
     </>
   )
