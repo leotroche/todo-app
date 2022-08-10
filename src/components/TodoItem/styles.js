@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 const TodoItem = styled(motion.div)`
-  font-size: 24px;
+  font-size: 1.2rem;
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
@@ -56,6 +56,10 @@ const TodoItem = styled(motion.div)`
     :last-child:hover {
       color: #c00;
     }
+  }
+
+  @media screen and (min-width: 600px) {
+    font-size: 2rem;
   }
 `
 

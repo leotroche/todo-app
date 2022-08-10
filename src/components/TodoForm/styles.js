@@ -5,7 +5,11 @@ const TodoForm = styled.form`
 
   display: flex;
   width: 100%;
-  height: 4rem;
+  height: 3rem;
+
+  @media screen and (min-width: 600px) {
+    height: 4rem;
+  }
 
   input {
     width: 100%;
