@@ -10,7 +10,7 @@ const TodoCounter = styled.h2`
   }
 
   @media screen and (min-width: 600px) {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 `
 
